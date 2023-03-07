@@ -110,7 +110,7 @@
         this.search();
       }
     },
-    created(){
+    created() {
       this.search();
     }
   };
@@ -127,6 +127,12 @@
     to { width: 15rem; height: 15rem; }
   }
 
+  h2 {
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0px 1px 3px 1.5px dimgrey;
+  }
+
   .header {
     background-color: lightgrey;
     border-radius: 10px;
@@ -141,6 +147,8 @@
     color: white;
     border-radius: 10px;
     grid-row: 2;
+    display: flex;
+    flex-flow: column;
   }
 
   section {
@@ -174,6 +182,10 @@
     border-radius: 30px;
     animation: blink 1.2s ease-in-out 0.4s;
     box-shadow: 0px 0px 10px 4px ghostwhite;
+  }
+
+  .logo:hover {
+    animation: none;
   }
 
   footer {
