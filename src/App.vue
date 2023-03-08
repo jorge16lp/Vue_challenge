@@ -1,6 +1,6 @@
 <template>
   <div class="logo_container">
-    <img src="../public/logo.png" class="logo">
+    <img src="/logo.png" class="logo">
   </div>
   <header class="header">
     <h1>Vue Challenge</h1>

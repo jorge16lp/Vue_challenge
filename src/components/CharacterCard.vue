@@ -48,6 +48,7 @@
     box-shadow: 0px 2px 6px 3px lightslategrey;
     border-radius: 10px;
     align-self: center;
+    cursor: zoom-in;
   }
 
   .character__image--alive:hover {
