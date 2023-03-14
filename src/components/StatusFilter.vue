@@ -1,12 +1,17 @@
 <template>
-  <label class="filter">
-    <slot></slot>
-    <input type="radio" v-on:change="$emit('clickCheckbox',$event)" name="status-filter">
-  </label>
+  <button @click="setFilter">{{ filter }}</button>
 </template>
 
 <script>
-  export default {};
+  export default {
+    props: ['filter'],
+    methods: {
+      setFilter() {
+        this.$store.commit('setStatus', this.filter);
+        this.$store.dispatch('fetchCharacters');
+      }
+    }
+  };
 </script>
 
 <style scoped>

@@ -1,12 +1,17 @@
 <template>
   <label for="search">
-    <input id="search" type="text" class="search" placeholder="Search..." v-on:input="$emit('search',$event.target.value)"/>
+    <input id="search" type="text" class="search" placeholder="Search..." @input="setQuery($event.target.value)"/>
   </label>
 </template>
 
 <script >
   export default  {
-
+    methods: {
+      setQuery(query) {
+        this.$store.commit('setQuery', query);
+        this.$store.dispatch('fetchCharacters');
+      }
+    }
   }
 </script>
 

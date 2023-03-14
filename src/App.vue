@@ -6,22 +6,25 @@
     <h1>Vue Challenge</h1>
   </header>
   <section>
-    <SearchInput v-on:search="setQuery"/>
+    <SearchInput />
   </section>
     <aside class="facets">
       <h2>Status Filter</h2>
       <BaseFilterList v-bind:filters="filters.status" v-slot="slotProps">
-        <StatusFilter v-on:clickCheckbox="changeCheckbox(slotProps.filter)">{{ slotProps.filter }}</StatusFilter>
+        <StatusFilter :filter="slotProps.filter" />
       </BaseFilterList>
       <h2>Species Filter</h2>
       <BaseFilterList v-bind:filters="filters.species" v-slot="slotProps">
-        <SpeciesFilter v-on:clickCheckbox="changeSpeciesCheckbox(slotProps.filter)">{{ slotProps.filter }}</SpeciesFilter>
+        <SpeciesFilter :filter="slotProps.filter" />
       </BaseFilterList>
       <ResetButton v-on:click="cleanFilters()"></ResetButton>
     </aside>
     <main>
       <BaseGrid>
-        <CharacterCard v-for="character in characters" v-bind:key="character.id" v-bind:character="character"/>
+        <CharacterCard
+            v-for="character in characters"
+            v-bind:key="character.id"
+            v-bind:character="character"/>
       </BaseGrid>
     </main>
   <footer>
@@ -33,26 +36,24 @@
   import BaseGrid from '@/components/BaseGrid.vue';
   import CharacterCard from '@/components/CharacterCard.vue';
   import SearchInput from '@/components/SearchInput.vue';
-  import StatusFilter from '@/components/StatusFilter.vue';
-  import SpeciesFilter from "@/components/SpeciesFilter.vue";
   import ResetButton from "@/components/ResetButton.vue";
+  import StatusFilter from "@/components/StatusFilter.vue";
+  import SpeciesFilter from "@/components/SpeciesFilter.vue";
+  import { mapGetters } from "vuex";
 
   export default {
     components: {
+      StatusFilter,
       ResetButton,
       SearchInput,
       CharacterCard,
-      StatusFilter,
-      SpeciesFilter,
       BaseFilterList,
-      BaseGrid
+      BaseGrid,
+      SpeciesFilter
     },
     data() {
       return {
-        characters: [],
-        query: '',
-        status: '',
-        url: 'https://rickandmortyapi.com/api/character/',
+        url: 'https://rickandmortyapi.com/api/character/?',
         /*
          * HACK:
          *  In Empathy Platform every request returns you the filters available, as Rick-&-morty API do not retrieve it we hardcode them here.
@@ -63,41 +64,19 @@
         }
       };
     },
-    watch: {
+    computed: {
+      characters() {
+        return this.$store.getters['getCharacters']
+      },
       query() {
-        this.search();
-      }
+        return this.$store.state.query
+      },
+      ...mapGetters({
+        status: 'getStatus',
+        specie: 'getSpecie'
+      })
     },
     methods: {
-      setQuery(query) {
-        this.query = query;
-      },
-      search() {
-        console.log(this.url + '?name=' + this.query + (this.status ? '&status=' + this.status : '')
-            + (this.species ? '&species=' + this.species : ''));
-        fetch(this.url + '?name=' + this.query + (this.status ? '&status=' + this.status : '')
-            + (this.species ? '&species=' + this.species : '')).then(response => response.json())
-            .then(data => {
-              this.characters = data.results;
-              console.log(this.characters);
-            });
-      },
-      changeCheckbox(checkboxValue) {
-        if (this.status === checkboxValue) {
-          this.status = '';
-        } else {
-          this.status = checkboxValue;
-        }
-        this.search();
-      },
-      changeSpeciesCheckbox(checkboxValue) {
-        if (this.species === checkboxValue) {
-          this.species = '';
-        } else {
-          this.species = checkboxValue;
-        }
-        this.search();
-      },
       cleanFilters() {
         const statusFilters = document.getElementsByName('status-filter');
         const speciesFilters = document.getElementsByName('species-filter');
@@ -111,7 +90,7 @@
       }
     },
     created() {
-      this.search();
+      this.$store.dispatch('fetchCharacters');
     }
   };
 </script>

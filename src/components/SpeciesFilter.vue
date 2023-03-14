@@ -1,21 +1,26 @@
 <template>
-  <label class="filter">
-    <slot></slot>
-    <input type="radio" v-on:change="$emit('clickCheckbox',$event)" name="species-filter">
-  </label>
+  <button @click="setFilter">{{ filter }}</button>
 </template>
 
 <script>
-  export default {};
+export default {
+  props: ['filter'],
+  methods: {
+    setFilter() {
+      this.$store.commit('setSpecie', this.filter);
+      this.$store.dispatch('fetchCharacters');
+    }
+  }
+};
 </script>
 
 <style scoped>
-  .filter:hover {
-    font-weight: 600;
-    cursor: pointer;
-  }
+.filter:hover {
+  font-weight: 600;
+  cursor: pointer;
+}
 
-  .filter {
-    margin-bottom: 8px;
-  }
+.filter {
+  margin-bottom: 8px;
+}
 </style>
