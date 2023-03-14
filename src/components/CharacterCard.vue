@@ -16,24 +16,24 @@
 
 <style scoped>
   @keyframes hover_alive {
-    from { width: 14rem; height: 14rem; box-shadow: 0px 2px 6px 3px lightslategrey; }
-    to { width: 15rem; height: 15rem; box-shadow: 0px 2px 6px 3px #aee75b; }
+    from { width: 14rem; height: 14rem; box-shadow: 0 2px 6px 3px lightslategrey; }
+    to { width: 15rem; height: 15rem; box-shadow: 0 0 6px 3px #aee75b; }
   }
 
   @keyframes hover_dead {
-    from { width: 14rem; height: 14rem; box-shadow: 0px 2px 6px 3px lightslategrey; }
-    to { width: 15rem; height: 15rem; box-shadow: 0px 2px 6px 3px #f35a5a; }
+    from { width: 14rem; height: 14rem; box-shadow: 0 2px 6px 3px lightslategrey; }
+    to { width: 15rem; height: 15rem; box-shadow: 0 0 6px 3px #f35a5a; }
   }
 
   @keyframes hover_unknown {
-    from { width: 14rem; height: 14rem; box-shadow: 0px 2px 6px 3px lightslategrey; }
-    to { width: 15rem; height: 15rem; box-shadow: 0px 2px 6px 3px darkslategrey; }
+    from { width: 14rem; height: 14rem; box-shadow: 0 2px 6px 3px lightslategrey; }
+    to { width: 15rem; height: 15rem; box-shadow: 0 0 6px 3px darkslategrey; }
   }
 
   .character {
     background-image: linear-gradient(white, lightgrey, lightgrey, lightgrey, lightgrey, lightgrey, lightgrey, white);
     border-radius: 10px;
-    margin: 15px 10px 20px 10px;
+    margin: 15px 10px 20px;
     display: flex;
     flex-direction: column;
     min-height: 22.2rem;
@@ -45,10 +45,10 @@
     width: 14rem;
     height: 14rem;
     margin-top: 1rem;
-    box-shadow: 0px 2px 6px 3px lightslategrey;
+    box-shadow: 0 0 6px 3px lightslategrey;
     border-radius: 10px;
     align-self: center;
-    cursor: zoom-in;
+    cursor: pointer;
   }
 
   .character__image--alive:hover {
@@ -67,14 +67,14 @@
   }
 
   .character__description {
-    margin-top: 0px;
+    margin-top: 0;
     text-align: center;
   }
 
   .character__status {
     text-align: center;
     border-radius: 10px;
-    margin: 0rem 1rem 1rem;
+    margin: 0 1rem 1rem;
   }
 
   .character__status--alive {
@@ -87,5 +87,63 @@
 
   .character__status--unknown {
     background: #939393;
+  }
+
+  @media (max-width: 1144px) {
+    @keyframes hover_alive {
+      from { width: 7rem; height: 7rem; box-shadow: 0 2px 6px 3px lightslategrey; }
+      to { width: 8rem; height: 8rem; box-shadow: 0 0 6px 3px #aee75b; }
+    }
+
+    @keyframes hover_dead {
+      from { width: 7rem; height: 7rem; box-shadow: 0 2px 6px 3px lightslategrey; }
+      to { width: 8rem; height: 8rem; box-shadow: 0 0 6px 3px #f35a5a; }
+    }
+
+    @keyframes hover_unknown {
+      from { width: 7rem; height: 7rem; box-shadow: 0 2px 6px 3px lightslategrey; }
+      to { width: 8rem; height: 8rem; box-shadow: 0 0 6px 3px darkslategrey; }
+    }
+
+    .character {
+      min-height: 16.15rem;
+      max-height: 16.15rem;
+      min-width: 9rem;
+      max-width: 9rem;
+    }
+
+    .character__image {
+      width: 7rem;
+      height: 7rem;
+    }
+  }
+
+  @media (max-width: 744px) {
+    @keyframes hover_alive {
+      from { width: 5rem; height: 5rem; box-shadow: 0 2px 6px 3px lightslategrey; }
+      to { width: 6rem; height: 6rem; box-shadow: 0 0 6px 3px #aee75b; }
+    }
+
+    @keyframes hover_dead {
+      from { width: 5rem; height: 5rem; box-shadow: 0 2px 6px 3px lightslategrey; }
+      to { width: 6rem; height: 6rem; box-shadow: 0 0 6px 3px #f35a5a; }
+    }
+
+    @keyframes hover_unknown {
+      from { width: 5rem; height: 5rem; box-shadow: 0 2px 6px 3px lightslategrey; }
+      to { width: 6rem; height: 6rem; box-shadow: 0 0 6px 3px darkslategrey; }
+    }
+
+    .character {
+      min-height: 15rem;
+      max-height: 15rem;
+      min-width: 7rem;
+      max-width: 7rem;
+    }
+
+    .character__image {
+      width: 5rem;
+      height: 5rem;
+    }
   }
 </style>

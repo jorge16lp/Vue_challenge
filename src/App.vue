@@ -161,7 +161,6 @@
     background-color: lightgrey;
     border-radius: 10px;
     grid-column: span 2;
-    justify-content: space-evenly;
     margin-right: 10px;
     box-shadow: 0px 2px 6px 3px dimgrey;
   }
@@ -196,5 +195,33 @@
     justify-content: center;
     box-shadow: 0px 2px 6px 3px dimgrey;
     margin-bottom: 10px;
+  }
+
+  @media(max-width: 1144px) {
+    header {
+      font-size: 0.7rem;
+    }
+  }
+
+  @media (max-width: 744px) {
+    header {
+      grid-column: span 2;
+      font-size: 0.6rem;
+    }
+
+    aside {
+      grid-row: 3;
+      grid-column: span 3;
+      display: grid;
+      grid-template-columns: 45% 55%;
+    }
+
+    input {
+      grid-row: 2;
+    }
+
+    footer {
+      grid-row: 5;
+    }
   }
 </style>
