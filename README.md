@@ -1,14 +1,12 @@
-# academy-path
+# Vue and VueX Challenges by Jorge López
 
-This template should help get you started developing with Vue 3 in Vite.
+This repository contains the first Vue challenge and also the first
+VueX challenge at Academy Frontend Software - Empathy.co
 
-## Recommended IDE Setup
+## Branches
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+- [Vue Project](https://github.com/jorge16lp/Vue_challenge)
+- [VueX Project](https://github.com/jorge16lp/Vue_challenge/tree/VueX_challenge)
 
 ## Project Setup
 
