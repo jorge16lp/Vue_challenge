@@ -8,8 +8,8 @@
   export default  {
     methods: {
       setQuery(query) {
-        this.$store.commit('setQuery', query);
-        this.$store.dispatch('fetchCharacters');
+        this.$store.commit('search/setQuery', query);
+        this.$store.dispatch('characters/fetchCharacters');
       }
     }
   }

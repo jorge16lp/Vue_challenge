@@ -39,7 +39,6 @@
   import ResetButton from "@/components/ResetButton.vue";
   import StatusFilter from "@/components/StatusFilter.vue";
   import SpeciesFilter from "@/components/SpeciesFilter.vue";
-  import { mapGetters } from "vuex";
 
   export default {
     components: {
@@ -53,7 +52,6 @@
     },
     data() {
       return {
-        url: 'https://rickandmortyapi.com/api/character/?',
         /*
          * HACK:
          *  In Empathy Platform every request returns you the filters available, as Rick-&-morty API do not retrieve it we hardcode them here.
@@ -64,33 +62,20 @@
         }
       };
     },
+    mounted() {
+      this.$store.dispatch('characters/fetchCharacters');
+    },
     computed: {
       characters() {
-        return this.$store.getters['getCharacters']
-      },
-      query() {
-        return this.$store.state.query
-      },
-      ...mapGetters({
-        status: 'getStatus',
-        specie: 'getSpecie'
-      })
+        return this.$store.getters['characters/getCharacters']
+      }
     },
     methods: {
       cleanFilters() {
-        const statusFilters = document.getElementsByName('status-filter');
-        const speciesFilters = document.getElementsByName('species-filter');
-        for (let i=0; i<statusFilters.length; i++)
-          statusFilters[i].checked = false;
-        for (let i=0; i<speciesFilters.length; i++)
-          speciesFilters[i].checked = false;
-        this.species = '';
-        this.status = '';
-        this.search();
+        this.$store.commit('search/setStatus', '');
+        this.$store.commit('search/setSpecie', '');
+        this.$store.dispatch('characters/fetchCharacters');
       }
-    },
-    created() {
-      this.$store.dispatch('fetchCharacters');
     }
   };
 </script>

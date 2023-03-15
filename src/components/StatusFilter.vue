@@ -1,5 +1,5 @@
 <template>
-  <button @click="setFilter">{{ filter }}</button>
+  <button class="filter" @click="setFilter">{{ filter }}</button>
 </template>
 
 <script>
@@ -7,8 +7,8 @@
     props: ['filter'],
     methods: {
       setFilter() {
-        this.$store.commit('setStatus', this.filter);
-        this.$store.dispatch('fetchCharacters');
+        this.$store.commit('search/setStatus', this.filter);
+        this.$store.dispatch('characters/fetchCharacters');
       }
     }
   };

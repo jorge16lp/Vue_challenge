@@ -1,5 +1,5 @@
 <template>
-  <button @click="setFilter">{{ filter }}</button>
+  <button class="filter" @click="setFilter">{{ filter }}</button>
 </template>
 
 <script>
@@ -7,8 +7,8 @@ export default {
   props: ['filter'],
   methods: {
     setFilter() {
-      this.$store.commit('setSpecie', this.filter);
-      this.$store.dispatch('fetchCharacters');
+      this.$store.commit('search/setSpecie', this.filter);
+      this.$store.dispatch('characters/fetchCharacters');
     }
   }
 };

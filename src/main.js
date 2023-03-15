@@ -1,13 +1,13 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import { createStore } from 'vuex'
-
+import { store } from "@/store/store";
+/*
 const store = createStore({
     state: {
-        query: '',
-        characters: [],
-        status: '',
-        specie: ''
+        //query: '',
+        //characters: [],
+        //status: '',
+        //specie: ''
     },
     mutations: {
         setCharacters(state, characters) {
@@ -47,5 +47,5 @@ const store = createStore({
         }
     }
 })
-
+*/
 createApp(App).use(store).mount('#app')
