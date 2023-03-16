@@ -1,5 +1,5 @@
 <template>
-  <input id="resetButton" class="resetButton" type="button" value="Reset Filters">
+  <input id="reset_button" class="reset_button" type="button" value="Reset Filters">
 </template>
 
 <script >
@@ -10,11 +10,12 @@ export default  {
 
 <style scoped>
   @keyframes hoverShadow {
-    from { box-shadow: 0px 0px 0px 0px; }
-    to { box-shadow: 0px 1px 3px 1.5px white; }
+    from { box-shadow: 0 0 0 0; background-color: white; color: black; }
+    to { box-shadow: 0 0 4px 1px white; background-color: royalblue; color: white; }
   }
 
-  .resetButton {
+  .reset_button {
+    justify-self: center;
     align-self: center;
     width: 9rem;
     height: 1.5rem;
@@ -22,8 +23,15 @@ export default  {
     background-color: white;
   }
 
-  .resetButton:hover {
+  .reset_button:hover {
+    font-weight: bold;
     animation: hoverShadow 0.1s;
     animation-fill-mode: forwards;
+  }
+
+  @media (max-width: 744px) {
+    .reset_button {
+      min-width: 14rem;
+    }
   }
 </style>
