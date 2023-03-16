@@ -5,21 +5,21 @@
   <header class="header">
     <h1>Vue Challenge</h1>
   </header>
-  <section>
+  <section class="search_container">
     <SearchInput />
   </section>
     <aside class="facets">
-      <h2>Status Filter</h2>
+      <h2 class="status_header">Status Filter</h2>
       <BaseFilterList v-bind:filters="filters.status" v-slot="slotProps">
         <StatusFilter :filter="slotProps.filter" />
       </BaseFilterList>
-      <h2>Species Filter</h2>
+      <h2 class="species_header">Species Filter</h2>
       <BaseFilterList v-bind:filters="filters.species" v-slot="slotProps">
         <SpeciesFilter :filter="slotProps.filter" />
       </BaseFilterList>
-      <ResetButton v-on:click="cleanFilters()"></ResetButton>
+      <ResetButton class="reset_button" v-on:click="cleanFilters()"></ResetButton>
     </aside>
-    <main>
+    <main class="main">
       <BaseGrid>
         <CharacterCard
             v-for="character in characters"
@@ -177,7 +177,30 @@
       grid-row: 3;
       grid-column: span 3;
       display: grid;
-      grid-template-columns: 45% 55%;
+      grid-template: 0.5fr 2fr 0.5fr / 50% 50%;
+    }
+
+    .species_header {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .reset_button {
+      grid-row: 3;
+      grid-column: span 2;
+    }
+
+    .header {
+      grid-column: span 2;
+    }
+
+    .search_container {
+      grid-row: 2;
+      grid-column: span 3;
+    }
+
+    .main {
+      grid-column: span 3;
     }
 
     input {
@@ -186,6 +209,22 @@
 
     footer {
       grid-row: 5;
+    }
+  }
+
+  @media (max-width: 495px) {
+    .status_header {
+      justify-self: center;
+      width: 10rem;
+      max-height: 1.5rem;
+      font-size: 1rem;
+    }
+
+    .species_header {
+      justify-self: center;
+      width: 10rem;
+      max-height: 1.5rem;
+      font-size: 1rem;
     }
   }
 </style>
