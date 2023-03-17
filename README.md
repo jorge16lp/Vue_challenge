@@ -1,7 +1,7 @@
 # Vue and VueX Challenges by Jorge López
 
-This repository contains the first Vue challenge and also the first 
-VueX challenge at Academy Frontend Software - Empathy.co
+This repository contains Vue, VueX and TypeScript challenges
+at Academy Frontend Software - Empathy.co
 
 ## Branches
 
