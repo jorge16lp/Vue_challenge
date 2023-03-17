@@ -5,8 +5,9 @@ VueX challenge at Academy Frontend Software - Empathy.co
 
 ## Branches
 
-- [Vue Project](https://github.com/jorge16lp/Vue_challenge)
-- [VueX Project](https://github.com/jorge16lp/Vue_challenge/tree/VueX_challenge)
+- [Vue Challenge](https://github.com/jorge16lp/Vue_challenge)
+- [VueX Challenge](https://github.com/jorge16lp/Vue_challenge/tree/VueX_challenge)
+- [TypeScript Challenge](https://github.com/jorge16lp/Vue_challenge/tree/TypeScript_challenge)
 
 ## Project Setup
 
