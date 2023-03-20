@@ -3,7 +3,7 @@
     <img src="/logo.png" class="logo">
   </div>
   <header class="header">
-    <h1>Vue Challenge</h1>
+    <h1>TypeScript Challenge</h1>
   </header>
   <section class="search_container">
     <SearchInput />
