@@ -1,11 +1,20 @@
-export const charactersModule = {
-    namespaced: true,
-    state: () => ({
+import {Module} from "vuex";
+import {CharactersState} from '@vue/runtime-core';
+
+declare module '@vue/runtime-core' {
+    interface CharactersState {
         characters: []
-    }),
+    }
+}
+
+export const charactersModule: Module<CharactersState, any> = {
+    namespaced: true,
+    //state: () => ({
+    //    characters: []
+    //}),
     actions: {
         async fetchCharacters({ commit, rootGetters }) {
-            let url = 'https://rickandmortyapi.com/api/character/?';
+            let url: string = 'https://rickandmortyapi.com/api/character/?';
             fetch(url + 'name=' + rootGetters['search/getQuery']
                 + '&status=' + rootGetters['search/getStatus']
                 + '&species=' + rootGetters['search/getSpecie'])
@@ -16,12 +25,12 @@ export const charactersModule = {
         }
     },
     mutations: {
-        setCharacters(state, characters) {
+        setCharacters(state: CharactersState, characters: any): void {
             state.characters = characters
         }
     },
     getters: {
-        getCharacters(state) {
+        getCharacters(state: CharactersState): any {
             return state.characters
         }
     }

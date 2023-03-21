@@ -2,16 +2,20 @@
   <button class="filter" @click="setFilter">{{ filter }}</button>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+
+import {store} from "@/store/store";
+import {defineComponent} from "vue";
+
+export default defineComponent({
   props: ['filter'],
   methods: {
-    setFilter() {
-      this.$store.commit('search/setSpecie', this.filter);
-      this.$store.dispatch('characters/fetchCharacters');
+    setFilter(): void {
+      store.commit('search/setSpecie', this.filter);
+      store.dispatch('characters/fetchCharacters');
     }
   }
-};
+});
 </script>
 
 <style scoped>
