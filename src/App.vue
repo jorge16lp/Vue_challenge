@@ -32,13 +32,13 @@
   </footer>
 </template>
 <script lang="js">
-  import BaseFilterList from '@/components/BaseFilterList.vue';
-  import BaseGrid from '@/components/BaseGrid.vue';
-  import CharacterCard from '@/components/CharacterCard.vue';
-  import SearchInput from '@/components/SearchInput.vue';
-  import ResetButton from "@/components/ResetButton.vue";
-  import StatusFilter from "@/components/StatusFilter.vue";
-  import SpeciesFilter from "@/components/SpeciesFilter.vue";
+  import BaseFilterList from './components/BaseFilterList.vue';
+  import BaseGrid from './components/BaseGrid.vue';
+  import CharacterCard from './components/CharacterCard.vue';
+  import SearchInput from './components/SearchInput.vue';
+  import ResetButton from "./components/ResetButton.vue";
+  import StatusFilter from "./components/StatusFilter.vue";
+  import SpeciesFilter from "./components/SpeciesFilter.vue";
 
   export default {
     components: {

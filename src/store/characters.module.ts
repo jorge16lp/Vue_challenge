@@ -9,9 +9,6 @@ declare module '@vue/runtime-core' {
 
 export const charactersModule: Module<CharactersState, any> = {
     namespaced: true,
-    //state: () => ({
-    //    characters: []
-    //}),
     actions: {
         async fetchCharacters({ commit, rootGetters }) {
             let url: string = 'https://rickandmortyapi.com/api/character/?';
